@@ -1,0 +1,19 @@
+#you {
+  color: white;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#other {
+  color: white;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#other .message-content {
+  background-color: #14b8a6;
+  margin-right: 5px;
+}
+#other .photo {
+  align-items: start;
+  background-color: white;
+  margin-right: 5px;
+}
