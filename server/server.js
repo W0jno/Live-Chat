@@ -35,13 +35,6 @@ io.on("connection", (socket) => {
     socket.to(data.room).emit("recieve-message", data);
   });
 });
-/* io.of("/").adapter.on("create-room", (room) => {
-  console.log(`room ${room} was created`);
-});
-
-io.of("/dupa").adapter.on("join-room", (room, id) => {
-  console.log(`socket ${id} has joined room ${room}`);
-}); */
 
 server.listen(3001, () => {
   console.log("listening on 3001");
