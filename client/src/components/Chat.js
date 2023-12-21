@@ -101,50 +101,52 @@ function Chat({ socket, room, user }) {
     }
   };
   return (
-    <div className="border-2 border-cyan-200  h-1/2 w-1/3 flex flex-col rounded chat-window max-sm:w-4/5">
-      <div className="h-1/6 flex justify-center items-center bg-cyan-300 text-white chat-header">
-        <p className="text-3xl">Live Chat</p>
-      </div>
-      <div className="w-full h-full border-cyan-200 border-t-2 border-b-2  relative overflow-y-auto overflow-x-hidden chat-body">
-        <ScrollToBotton className="w-full h-full overflow-x-hidden message-container">
-          {messageList.map(renderMessages)}
-        </ScrollToBotton>
-      </div>
-      <div className="flex justify-between items-center h-16 chat-footer">
-        <label
-          for="file-input"
-          className="w-1/5 h-full bg-cyan-300 flex items-center justify-center"
-        >
-          <FontAwesomeIcon
-            icon={faImage}
-            className="h-4/5  text-white cursor-pointer"
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="border-2 border-cyan-200  h-1/2 w-1/3 flex flex-col rounded chat-window max-sm:w-4/5">
+        <div className="h-1/6 flex justify-around items-center bg-cyan-300 text-white chat-header">
+          <p className="text-3xl">Live Chat</p>
+        </div>
+        <div className="w-full h-full border-cyan-200 border-t-2 border-b-2  relative overflow-y-auto overflow-x-hidden chat-body">
+          <ScrollToBotton className="w-full h-full overflow-x-hidden message-container">
+            {messageList.map(renderMessages)}
+          </ScrollToBotton>
+        </div>
+        <div className="flex justify-between items-center h-16 chat-footer">
+          <label
+            for="file-input"
+            className="w-1/5 h-full bg-cyan-300 flex items-center justify-center"
+          >
+            <FontAwesomeIcon
+              icon={faImage}
+              className="h-4/5  text-white cursor-pointer"
+            />
+          </label>
+          <input
+            id="file-input"
+            type="file"
+            onChange={selectFile}
+            className=" bg-cyan-300 text-white  hidden"
           />
-        </label>
-        <input
-          id="file-input"
-          type="file"
-          onChange={selectFile}
-          className=" bg-cyan-300 text-white  hidden"
-        />
 
-        <input
-          type="text"
-          placeholder="Aa"
-          className="w-4/5 h-full  border-cyan-400 text-xl p-2"
-          value={currentMessage}
-          onChange={(e) => {
-            setCurrentMessage(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            e.key === "Enter" && sendMessage();
-          }}
-        ></input>
-        <button
-          onClick={sendMessage}
-          className="w-1/5 h-full bg-cyan-300 text-white text-3xl"
-        >
-          &#9658;
-        </button>
+          <input
+            type="text"
+            placeholder="Aa"
+            className="w-4/5 h-full  border-cyan-400 text-xl p-2"
+            value={currentMessage}
+            onChange={(e) => {
+              setCurrentMessage(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              e.key === "Enter" && sendMessage();
+            }}
+          ></input>
+          <button
+            onClick={sendMessage}
+            className="w-1/5 h-full bg-cyan-300 text-white text-3xl"
+          >
+            &#9658;
+          </button>
+        </div>
       </div>
     </div>
   );
