@@ -1,11 +1,8 @@
 import React, { useState, useMemo } from "react";
-//import { Route, Routes, useNavigate } from "react-router-dom";
-//import Photo from "./Photo";
 
 function Image(props) {
   const [imageSrc, setImageSrc] = useState("");
   const [clicked, setClicked] = useState(false);
-  //const navigate = useNavigate();
 
   useMemo(() => {
     const reader = new FileReader();
@@ -15,7 +12,6 @@ function Image(props) {
     };
   }, [props.blob]);
   const selectPhoto = (e) => {
-    //navigate("/photo");
     setClicked(!clicked);
   };
 
@@ -33,9 +29,6 @@ function Image(props) {
           <p className="ml-4">{props.time}</p>
         </div>
       </div>
-      {/* <Routes>
-        <Route path="/photo" element={<Photo />} />
-      </Routes> */}
     </div>
   );
 }
