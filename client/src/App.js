@@ -10,6 +10,8 @@ const socket = io.connect("http://localhost:3001");
 function App() {
   const [room, setRoom] = useState("");
   const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const checkName = (name) => {
     if (name.length < 30) {
@@ -39,7 +41,17 @@ function App() {
           />
         }
       />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route
+        path="/register"
+        element={
+          <RegisterPage
+            setPassword={setPassword}
+            password={password}
+            username={username}
+            setUsername={setUsername}
+          />
+        }
+      />
       <Route
         path="room/:id"
         element={<Chat socket={socket} room={room} user={user} />}
