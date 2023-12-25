@@ -3,7 +3,6 @@ import "./App.css";
 import io from "socket.io-client";
 import Chat from "./components/Chat.js";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Photo from "./components/Photo.js";
 import LandingPage from "./components/LandingPage.js";
 const socket = io.connect("http://localhost:3001");
 
